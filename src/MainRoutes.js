@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './pages/Home'
+import Main from './pages/Main'
 export default function MainRoutes() {
   return (
     
@@ -14,6 +15,7 @@ export default function MainRoutes() {
       <Routes>
       <Route path="/" element={<Navigate replace to="/dashboard" />} />
       <Route path="dashboard" element={<Home />} />
+      <Route path="main" element={<Main/>} />
     </Routes>
     </div>
   )

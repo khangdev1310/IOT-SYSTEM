@@ -8,7 +8,7 @@ export default function SideBar() {
   const location = useLocation()
 
   return (
-    <div className="sidebar p-[10px]">
+    <div className="sidebar py-[10px] pl-[10px]">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <img src="logo.png" alt="Ảnh" className="w-[50px] h-[50px]" />
@@ -20,16 +20,16 @@ export default function SideBar() {
       </div>
 
       <div className="flex flex-col">
-        {sidebarItems.map((item, index) => {
+        {sidebarItems.map((item) => {
           return (
             <>
               <Link
-                key={index}
+                key={item.text}
                 to={item.to}
                 className={
                   location.pathname.includes(item.to)
                     ? 'sidebar_active flex'
-                    : 'flex items-center'
+                    : 'flex'
                 }
               >
                 {item.component}
