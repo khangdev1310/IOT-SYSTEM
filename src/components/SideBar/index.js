@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 
 export default function SideBar() {
   const location = useLocation()
+  
 
   return (
     <div className="sidebar py-[10px] pl-[10px]">

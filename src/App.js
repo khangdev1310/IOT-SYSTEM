@@ -15,7 +15,6 @@ function App() {
           <SideBar />
         </div>
         <div className="w-[85%] h-full relative">
-          {/* Header */}
           <Header />
 
           <div className="bg-pray-950 h-screen">
