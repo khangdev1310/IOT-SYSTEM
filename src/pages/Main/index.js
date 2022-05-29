@@ -1,15 +1,26 @@
 import React from 'react'
-
 import { RiTempHotLine } from 'react-icons/ri'
 import { WiHumidity } from 'react-icons/wi'
 import { AiFillThunderbolt } from 'react-icons/ai'
+import axiosClient from '../../utils/axiosClient'
 
 // Antd
 import { Switch } from 'antd'
 
 export default function Main() {
-  const handleChange = (value) => {
-    console.log(value)
+  const handleLed1Change = (value) => {
+    if(value == true) {
+      axiosClient.post('/led', { value: 'led1_on' });
+    }else {
+      axiosClient.post('/led', { value: 'led1_off' });
+    }
+  }
+  const handleLed2Change = (value) => {
+    if(value == true) {
+      axiosClient.post('/led', { value: 'led2_on' });
+    }else {
+      axiosClient.post('/led', { value: 'led2_off' });
+    }
   }
   return (
     // Height 200 -> 250px
@@ -103,11 +114,11 @@ export default function Main() {
           <div className="flex mt-2">
             <div className="light-1 font-bold text-[22px]">
               Đèn 1
-              <Switch value={false} onChange={handleChange} />
+              <Switch value={false} onChange={handleLed1Change} />
             </div>
             <div className="light-2 ml-[160px] font-bold text-[22px]">
               Đèn 2
-              <Switch value={false} onChange={handleChange} />
+              <Switch value={false} onChange={handleLed2Change} />
             </div>
           </div>
         </div>
