@@ -2,25 +2,24 @@ import React from 'react'
 import { RiTempHotLine } from 'react-icons/ri'
 import { WiHumidity } from 'react-icons/wi'
 import { AiFillThunderbolt } from 'react-icons/ai'
-import client from '../../utils/mqtt'
-import { LED_TOPIC } from '../../constants/topic'
+import axiosClient from '../../utils/axiosClient'
 
 // Antd
 import { Switch } from 'antd'
 
 export default function Main() {
   const handleLed1Change = (value) => {
-    if(value === true) {
-      client.publish(LED_TOPIC, 'led1_on')
+    if(value == true) {
+      axiosClient.post('/led', { value: 'led1_on' });
     }else {
-      client.publish(LED_TOPIC, 'led1_off')
+      axiosClient.post('/led', { value: 'led1_off' });
     }
   }
   const handleLed2Change = (value) => {
-    if(value === true) {
-      client.publish(LED_TOPIC, 'led2_on')
+    if(value == true) {
+      axiosClient.post('/led', { value: 'led2_on' });
     }else {
-      client.publish(LED_TOPIC, 'led2_off')
+      axiosClient.post('/led', { value: 'led2_off' });
     }
   }
   return (
